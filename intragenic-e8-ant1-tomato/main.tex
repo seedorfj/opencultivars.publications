@@ -1,0 +1,506 @@
+% defensive_publication.tex
+% Intended for compilation on Overleaf. Do not attempt local compilation.
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Defensive Publication --- March 27, 2026}
+\lhead{OpenCultivars.org}
+\cfoot{\thepage}
+
+\title{%
+  \textbf{Intragenic and Cisgenic Enhancement of Anthocyanin Biosynthesis\\
+  in Edible Crop Tissues via Tissue-Specific Expression of\\
+  Endogenous R2R3-MYB Transcription Factors}\\[1em]
+  \large A Defensive Publication for Establishing Prior Art
+}
+
+\author{OpenCultivars.org}
+\date{March 27, 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\small\textbf{Public Domain Dedication.}
+This disclosure is placed into the public domain for the express purpose of establishing prior art and preventing patent encumbrance. All described methods, constructs, and applications are freely available for use by any person or entity.
+}}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{abstract}
+This disclosure describes methods and compositions for enhancing anthocyanin biosynthesis in the edible tissues of crop plants using intragenic or cisgenic approaches---specifically, using genetic elements (promoters, coding sequences, and terminators) derived from the host species or its sexually compatible relatives.
+
+The primary embodiment describes a construct comprising the \textit{Solanum lycopersicum} (tomato) fruit-ripening-specific E8 promoter operably linked to the \textit{S.~lycopersicum} ANTHOCYANIN1 (ANT1) R2R3-MYB transcription factor coding sequence and a tomato-native 3\textquotesingle{} terminator, delivered as an additional copy via \textit{Agrobacterium}-mediated transformation with subsequent marker-free segregation. Methods for CRISPR-mediated promoter replacement at the endogenous ANT1 locus are also described.
+
+Existing disclosures teach transgenic anthocyanin enhancement in tomato using non-tomato transcription factors (e.g., \textit{Delila}/\textit{Rosea1} from \textit{Antirrhinum majus}) or non-tomato regulatory elements (e.g., CaMV 35S). This disclosure describes and places into the public domain the use of a host-derived ripening promoter to drive a host-derived anthocyanin-activating MYB in edible tissue, including intragenic tomato implementations and related host-sequence-only variants.
+
+Closely related variants are described for pepper, eggplant, potato, and maize. Prophetic embodiments for additional species are presented in a supplemental appendix.
+
+This disclosure is made to ensure that these approaches remain available to the open-source plant breeding community and cannot be encumbered by future patents.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% ============================================================
+% PART I: CORE ENABLING DISCLOSURE
+% ============================================================
+\part*{Part I: Core Enabling Disclosure}
+\addcontentsline{toc}{part}{Part I: Core Enabling Disclosure}
+
+% ============================================================
+\section{Background}
+% ============================================================
+
+\subsection{Anthocyanin Biosynthesis in Plants}
+
+Anthocyanins are water-soluble flavonoid pigments responsible for red, purple, and blue coloration in plant tissues. They are synthesized via the phenylpropanoid/flavonoid pathway through the sequential action of structural enzymes: chalcone synthase (CHS), chalcone isomerase (CHI), flavanone 3-hydroxylase (F3H), dihydroflavonol 4-reductase (DFR), anthocyanidin synthase (ANS), and UDP-glucose:flavonoid 3-O-glucosyltransferase (UFGT). The resulting anthocyanin-glycosides are transported to the vacuole for stable accumulation.
+
+The expression of these structural genes is coordinately regulated by the MBW transcription factor complex, consisting of:
+\begin{itemize}
+  \item An \textbf{R2R3-MYB} transcription factor (DNA-binding specificity; a frequent and often major determinant of tissue-specific anthocyanin accumulation in many characterized systems)
+  \item A \textbf{basic helix-loop-helix (bHLH)} co-activator
+  \item A \textbf{WD40 repeat} scaffold protein
+\end{itemize}
+
+This regulatory architecture is widely conserved across angiosperms \citep{Gonzali2009}. In many characterized systems, whether a given tissue accumulates anthocyanins depends substantially on whether the appropriate R2R3-MYB activator is expressed in that tissue at sufficient levels, although other factors---including bHLH availability, chromatin state, and metabolic flux---may also contribute.
+
+\subsection{Existing Transgenic Approaches}
+
+The commercially available ``Purple Tomato'' (Norfolk Plant Sciences, US Patent 8,802,925) uses two transcription factor genes---\textit{Delila} (Del, a bHLH) and \textit{Rosea1} (Ros1, a MYB)---from \textit{Antirrhinum majus} (snapdragon). Because these genes originate from a species that is not sexually compatible with tomato, the resulting plants are classified as transgenic.
+
+Prior academic work \citep{Mathews2003} demonstrated that overexpression of the tomato's own ANT1 gene under the constitutive CaMV 35S promoter produces purple pigmentation throughout the plant. However, the 35S promoter is derived from Cauliflower Mosaic Virus, rendering this construct transgenic as well.
+
+\subsection{The Intragenic/Cisgenic Opportunity}
+
+The present disclosure describes constructs and methods for anthocyanin enhancement that use host-species-derived sequences for all functional genetic elements (promoter, coding sequence, terminator). These constructs may qualify for different regulatory treatment than transgenic approaches in certain jurisdictions, though the regulatory classification of any specific implementation will depend on the jurisdiction, the specific development method used, the presence or absence of foreign DNA in the final product, and the applicable regulatory framework in effect at the time of review. See Section~\ref{sec:definitions} for further discussion of classification.
+
+\subsection{Novelty of This Disclosure}
+\label{sec:novelty}
+
+Existing disclosures teach transgenic anthocyanin enhancement in tomato using non-tomato transcription factors or non-tomato regulatory elements, and separately teach overexpression of endogenous ANT1 under heterologous promoters. This disclosure describes and places into the public domain the use of a host-derived ripening promoter to drive a host-derived anthocyanin-activating MYB in edible tissue, including intragenic tomato implementations and related host-sequence-only variants. This specific combination---E8::ANT1 as a fully intragenic construct, and the generalized principle of endogenous-promoter-driven endogenous-MYB overexpression as an explicitly cisgenic or intragenic strategy---does not appear to be expressly disclosed in the materials reviewed (see companion Prior Art Analysis).
+
+% ============================================================
+\section{Definitions and Classification Caveats}
+\label{sec:definitions}
+% ============================================================
+
+The following terms are used in this disclosure with the meanings described below. These definitions are provided for clarity within this document and are not intended to supersede legal or regulatory definitions, which vary by jurisdiction.
+
+\subsection{Cisgenic}
+A modified plant in which the introduced genetic material (promoter, coding sequence, and terminator) is derived exclusively from the host species or from a species with which it is sexually compatible. The introduced DNA is organized in a sense orientation and includes natural gene elements without rearrangement. Under many current and proposed regulatory frameworks, cisgenic modifications may be treated differently from transgenic modifications, though this varies by jurisdiction and is subject to change.
+
+\subsection{Intragenic}
+A modified plant in which all genetic elements are derived from the host species or sexually compatible relatives, but are combined in novel arrangements not found in nature (e.g., an endogenous coding sequence under the control of a different endogenous promoter). The E8::ANT1 construct described in this disclosure is more precisely classified as \textbf{intragenic} because it combines two native tomato elements (E8 promoter and ANT1 coding sequence) in a non-native arrangement. Some regulatory frameworks treat intragenic and cisgenic modifications equivalently; others distinguish between them.
+
+\subsection{Transgenic Intermediate}
+A plant produced through a development process that involves foreign DNA at some stage---such as bacterial T-DNA borders, selectable marker genes of non-plant origin, or CRISPR expression cassettes---but from which all foreign DNA has been removed in the final product through segregation, excision, or other means. The regulatory treatment of such plants varies: some jurisdictions classify based on the final product (product-based regulation), while others consider the process by which it was developed (process-based regulation).
+
+\subsection{DNA-Free Edited}
+A plant modified by delivery of editing reagents as proteins and/or RNA (e.g., Cas9 ribonucleoprotein complexes) rather than as DNA constructs. No foreign DNA is introduced at any stage. Such plants may be indistinguishable from conventionally bred plants at the molecular level and may receive less restrictive regulatory treatment, depending on jurisdiction.
+
+\subsection{Marker-Free}
+A plant from which any selectable marker gene (e.g., antibiotic or herbicide resistance) has been removed. Marker-free status does not alone determine regulatory classification but is generally desirable for both regulatory and consumer-acceptance purposes.
+
+\subsection{Classification Note}
+Throughout this disclosure, when we describe an approach as ``cisgenic'' in the broad sense, we mean that the functional genetic elements in the final plant product (promoter, coding sequence, terminator) are all derived from the host species or its sexually compatible relatives. We acknowledge that the development process may involve non-cisgenic intermediates (e.g., \textit{Agrobacterium} T-DNA borders) and that regulatory classification depends on multiple factors beyond the origin of the functional sequences. Developers should assess regulatory status on a case-by-case basis in consultation with the relevant authorities in their jurisdiction.
+
+\subsection{Disclaimer}
+\label{sec:disclaimer}
+\begin{quote}
+\textit{This document is intended as a technical disclosure for prior-art purposes and does not constitute legal advice, patentability analysis, or regulatory advice. The legal effect of publication and the regulatory classification of any resulting plant vary by jurisdiction and factual circumstances. Readers should consult qualified legal and regulatory professionals for guidance specific to their situation.}
+\end{quote}
+
+% ============================================================
+\section{Detailed Description: Primary Embodiment}
+\label{sec:primary}
+% ============================================================
+
+\subsection{E8::ANT1 in Tomato (\textit{Solanum lycopersicum})}
+
+\subsubsection{Construct Design}
+
+The primary construct consists of three elements, all derived from \textit{S.~lycopersicum}:
+
+\begin{verbatim}
+  [E8 promoter] -> [ANT1 coding sequence] -> [ANT1 3'UTR or E8 3'UTR]
+\end{verbatim}
+
+\paragraph{E8 Promoter} (\textit{Solyc09g089580} upstream region):
+\begin{itemize}
+  \item The E8 gene encodes an enzyme involved in ethylene biosynthesis during fruit ripening \citep{Deikman1988}
+  \item The E8 promoter drives high-level gene expression specifically in ripening fruit tissue \citep{Butelli2008}
+  \item Expression is induced at the onset of ripening (breaker stage) and by exogenous ethylene
+  \item The promoter has been shown to have weak or undetectable activity in vegetative tissues in transgenic tomato studies \citep{Butelli2008}
+  \item Approximately 1.1~kb of 5\textquotesingle{} flanking sequence has been shown to be sufficient for fruit-specific activity in published work
+  \item This promoter is expected to confine anthocyanin accumulation primarily to the fruit, though expression levels and tissue specificity may vary by cultivar, insertion site, and environmental conditions
+\end{itemize}
+
+\paragraph{ANT1 Coding Sequence} (\textit{Solyc10g086260}):
+\begin{itemize}
+  \item ANT1 (ANTHOCYANIN1) encodes an R2R3-MYB transcription factor \citep{Mathews2003}
+  \item When expressed, ANT1 recruits endogenous bHLH (e.g., JAF13/AN1) and WD40 (e.g., AN11) partners to form the MBW complex
+  \item The MBW complex binds to promoters of structural anthocyanin genes (CHS, CHI, F3H, DFR, ANS, UFGT) and activates their transcription
+  \item The full coding sequence is approximately 750--800~bp (varying by allele)
+  \item Both the cultivated tomato (\textit{S.~lycopersicum}) ANT1 and wild species alleles (e.g., from \textit{S.~chilense}, \textit{S.~peruvianum}) have been shown to be functional when overexpressed \citep{Mathews2003, Sapir2008}; the use of any \textit{Solanum} sect.\ \textit{Lycopersicon} ANT1 allele is within the scope of this disclosure
+\end{itemize}
+
+\paragraph{3\textquotesingle{} Terminator:}
+\begin{itemize}
+  \item For an intragenic construct, the terminator/polyadenylation signal should be derived from the ANT1 gene's own 3\textquotesingle{}UTR (approximately 200--400~bp downstream of the stop codon) or from the E8 gene's 3\textquotesingle{}UTR
+  \item It is expected, based on general principles of eukaryotic gene expression, that these native downstream sequences will provide functional polyadenylation and transcriptional termination; however, terminator efficiency in the specific construct context should be validated experimentally
+  \item The commonly used \textit{nos} terminator (from \textit{Agrobacterium tumefaciens}) would introduce a non-plant sequence and is therefore not used in the intragenic embodiment described here
+  \item Any tomato-derived or sexually-compatible-species-derived terminator sequence providing functional polyadenylation is within scope
+\end{itemize}
+
+\subsubsection{Expected Phenotype}
+
+Based on published data from 35S::ANT1 tomato \citep{Mathews2003} and E8::Del/Ros1 tomato \citep{Butelli2008}:
+\begin{description}
+  \item[Fruit:] Purple coloration is expected beginning at or near the breaker stage, driven by anthocyanin accumulation in the pericarp and skin. The intensity and distribution of pigmentation may vary depending on the insertion site, copy number, cultivar background, growing conditions, and light exposure.
+  \item[Vegetative tissues:] Expected to have a typical appearance, as the E8 promoter has been shown to be largely inactive in non-fruit tissues. Low-level expression in other tissues cannot be ruled out without empirical validation.
+  \item[Anthocyanin content:] Published 35S::ANT1 and E8::Del/Ros1 systems have achieved anthocyanin levels in the range of approximately 2--3~mg/g fresh weight, primarily delphinidin and petunidin glycosides. The E8::ANT1 construct may achieve similar, higher, or lower levels depending on construct context, insertion site, allele used, and cultivar background.
+  \item[Potential pleiotropic effects:] Anthocyanin accumulation may influence fruit traits beyond color, including pH, flavor profile, volatile compound production, carbon partitioning, ripening dynamics, and shelf life. These effects should be characterized empirically in any resulting lines.
+\end{description}
+
+\subsubsection{Construct Assembly}
+
+The construct may be assembled by any standard molecular cloning method, including restriction enzyme digestion and ligation, Gibson Assembly, Golden Gate Assembly, Gateway cloning, or overlap-extension PCR followed by cloning into a binary vector.
+
+\paragraph{Detailed procedure for the primary embodiment:}
+\begin{enumerate}
+  \item \textbf{Amplify the E8 promoter:} Design primers to amplify approximately 1.1~kb of the 5\textquotesingle{} flanking region upstream of the E8 start codon (\textit{Solyc09g089580}) from \textit{S.~lycopersicum} genomic DNA (e.g., cultivar Heinz 1706, reference genome SL4.0). Include appropriate restriction sites or homology overlaps for the chosen assembly method.
+  \item \textbf{Amplify the ANT1 coding sequence:} Design primers to amplify the full ANT1 open reading frame from \textit{S.~lycopersicum} cDNA or genomic DNA (\textit{Solyc10g086260}). If amplifying from genomic DNA, note that introns will be included; for a minimal construct, cDNA (intron-free) is preferred. Alternatively, the gene may be synthesized.
+  \item \textbf{Amplify the terminator:} Design primers to amplify approximately 300--500~bp of 3\textquotesingle{} flanking sequence downstream of the ANT1 stop codon, or equivalently from the E8 gene 3\textquotesingle{} region.
+  \item \textbf{Assemble:} Ligate or assemble the three fragments (E8 promoter $\rightarrow$ ANT1 CDS $\rightarrow$ terminator) in the correct orientation into a binary vector suitable for \textit{Agrobacterium}-mediated transformation (e.g., pCAMBIA series, pBI121 derivative, or equivalent). The assembled cassette should be inserted between the T-DNA left border (LB) and right border (RB).
+  \item \textbf{Optional selectable marker:} If a selectable marker is included on the same T-DNA (e.g., \textit{nptII} for kanamycin resistance), plan for marker removal in subsequent generations (see Section~\ref{sec:markerfree}). Alternatively, omit the marker entirely and use the purple phenotype for visual screening.
+  \item \textbf{Sequence verification:} Confirm the complete assembled cassette by Sanger sequencing across all junctions before transformation.
+\end{enumerate}
+
+\subsection{Delivery and Selection: Primary Method}
+
+\subsubsection{\textit{Agrobacterium}-Mediated Transformation}
+
+The E8::ANT1 cassette on a binary vector T-DNA is delivered to tomato cells via \textit{Agrobacterium tumefaciens}. Recommended strains for Solanaceae include EHA105 or AGL1, which have demonstrated high virulence on tomato explants in published protocols. Standard tomato transformation protocols using cotyledon or hypocotyl explants are applicable (e.g., Van Eck et al.\ 2019, \textit{Methods in Molecular Biology}).
+
+The T-DNA integrates at a random genomic location. Multiple independent transformants (T0) should be generated and screened for:
+\begin{itemize}
+  \item Single-copy T-DNA insertion (by Southern blot, qPCR, or segregation analysis in T1)
+  \item Fruit-specific anthocyanin expression (visual screening at the ripening stage)
+  \item Normal plant morphology and fertility
+  \item Absence of position-effect silencing
+\end{itemize}
+
+Generating 10--30 independent T0 lines is a reasonable starting target based on typical tomato transformation experiments.
+
+\subsubsection{Achieving Marker-Free / Intragenic Status}
+\label{sec:markerfree}
+
+The T-DNA borders and any selectable marker gene (e.g., \textit{nptII}) present on the binary vector are of bacterial origin and are not part of the intragenic construct. To produce a final plant line containing only the intragenic E8::ANT1 cassette:
+
+\begin{description}
+  \item[Option A --- Marker-free segregation:] If the selectable marker and the E8::ANT1 cassette are at different T-DNA insertion sites, marker-free progeny carrying only the E8::ANT1 cassette can be identified in the T1 generation by screening for purple fruit combined with marker sensitivity. This approach depends on independent segregation and is not guaranteed.
+  \item[Option B --- Co-transformation and segregation:] Use two separate \textit{Agrobacterium} strains, one carrying the E8::ANT1 cassette and one carrying the selectable marker on independent T-DNAs. In the T1 generation, segregants carrying only the E8::ANT1 insertion can be identified.
+  \item[Option C --- Visual selection only:] Omit the selectable marker entirely. Screen regenerated T0 shoots directly for the purple-fruit phenotype at the fruiting stage.
+  \item[Option D --- Site-specific recombination:] Flank the selectable marker with loxP or FRT sites and cross the T0 line with a Cre- or FLP-expressing line to excise the marker in the T1 generation.
+\end{description}
+
+In all cases, final marker-free lines should be confirmed by PCR, Southern blot, or whole-genome sequencing to verify absence of vector backbone, selectable marker, and any unintended T-DNA fragments.
+
+\paragraph{Note on residual T-DNA border sequences:} Even in marker-free lines, short fragments of T-DNA border sequence (typically 10--25~bp of truncated LB/RB) may remain flanking the inserted cassette. Whether this residual bacterial-origin DNA affects regulatory classification depends on the jurisdiction.
+
+% ============================================================
+\section{Alternative Delivery Methods}
+\label{sec:delivery}
+% ============================================================
+
+The following delivery methods represent the most defensible and conceptually central alternatives to standard \textit{Agrobacterium}-mediated transformation for the tomato primary embodiment.
+
+\subsection{CRISPR-Mediated Promoter Replacement}
+
+Rather than adding a new copy of the gene, the endogenous ANT1 promoter can be replaced \textit{in situ} with the E8 promoter using CRISPR/Cas9 or CRISPR/Cas12a:
+
+\begin{enumerate}
+  \item Design guide RNAs targeting sites flanking the native ANT1 promoter region
+  \item Provide a homology-directed repair (HDR) template containing the E8 promoter sequence flanked by homology arms matching the ANT1 locus
+  \item Co-deliver the CRISPR components and HDR template to tomato cells via \textit{Agrobacterium} or protoplast transformation
+  \item Screen regenerated plants for correct promoter replacement by PCR across the junctions and sequencing
+\end{enumerate}
+
+This approach preserves the native ANT1 coding sequence and 3\textquotesingle{}UTR in their original genomic context. If all CRISPR components are subsequently removed by segregation or if delivered as DNA-free reagents, the final plant contains only tomato-derived sequences.
+
+\paragraph{Known constraints:}
+\begin{itemize}
+  \item \textbf{HDR efficiency is low in plant cells.} NHEJ is strongly favored over HDR in plant somatic cells, typically by ratios reported in the range of 20:1 to 100:1 \citep{Puchta2005, Steinert2016}. Large numbers of regenerated plants must be screened.
+  \item Strategies reported to improve HDR efficiency include: use of Cas9-nickase (D10A) with paired guide RNAs; cell-cycle synchronization; use of Cas12a (LbCas12a); delivery of the HDR template on a geminiviral replicon.
+  \item This method is technically demanding and may not be suitable for community biology settings without institutional-level tissue culture and screening capabilities.
+\end{itemize}
+
+\subsection{CRISPR-Mediated Gene Cassette Insertion at a Predetermined Locus}
+
+The complete E8::ANT1::terminator cassette can be inserted at a predetermined locus using CRISPR-mediated targeted insertion. This combines the precision of targeted insertion with the advantage of a defined insertion site, but is currently among the most technically challenging approaches described in this disclosure. Validated ``safe harbor'' loci have not been well-characterized in tomato, and empirical validation is required.
+
+% ============================================================
+\section{Closely Related Variants}
+\label{sec:variants}
+% ============================================================
+
+\subsection{Preferred Alternatives}
+
+\subsubsection{Knockout of Endogenous Anthocyanin Repressors (SDN-1)}
+
+R3-MYB repressors compete for bHLH binding and attenuate anthocyanin production. CRISPR-mediated knockout of these repressors (creating loss-of-function alleles via small indels---classified as SDN-1, requiring no template DNA) is an alternative or complementary approach:
+
+\begin{itemize}
+  \item \textbf{Tomato:} CRISPR knockout of \textit{SlMYBL2}
+  \item \textbf{Maize:} CRISPR knockout of \textit{Mybr97}. The natural recessive mutation in \textit{Anthocyanin3} (\textit{a3}) has been demonstrated to result in approximately 100-fold increased anthocyanin accumulation
+\end{itemize}
+
+This approach is among the most promising alternatives because: (a)~SDN-1 editing is the least regulated editing category in most jurisdictions; (b)~the resulting plants contain no introduced DNA; (c)~natural loss-of-function alleles exist in gene pools, demonstrating biological plausibility.
+
+\textbf{Caveat:} The effectiveness of repressor knockout depends on the specific repressor's role in the target tissue and the presence of sufficient endogenous MYB activator expression.
+
+\subsubsection{Allele Substitution from Wild Relatives}
+
+High-expression alleles of ANT1 from sexually compatible wild relatives (e.g., \textit{S.~chilense}, \textit{S.~peruvianum}, \textit{S.~pennellii}) may be substituted for the cultivated allele. Because these species are sexually compatible with cultivated tomato, the resulting constructs remain intragenic or cisgenic by most definitions. Natural variation in ANT1 alleles is well-documented \citep{Sapir2008}.
+
+\subsection{Combinable Alternatives}
+
+\subsubsection{Co-Expression of MYB + bHLH}
+
+In some species or cultivar backgrounds, overexpression of the MYB activator alone may produce suboptimal anthocyanin levels if endogenous bHLH co-activator levels are limiting. Co-expression of an endogenous bHLH using a second tissue-specific promoter is within scope:
+
+\begin{verbatim}
+  [P_X::MYB_X::T_X] + [P_X2::bHLH_X::T_X2]
+\end{verbatim}
+
+For tomato: \texttt{E8::ANT1 + E8::JAF13} or \texttt{E8::ANT1 + E8::AN1}
+
+This two-gene approach mirrors the transgenic Del/Ros1 strategy but in a fully intragenic configuration. Whether bHLH co-expression is needed should be determined empirically.
+
+% ============================================================
+\section{Specific Supported Cross-Species Embodiments}
+\label{sec:crossspecies}
+% ============================================================
+
+This disclosure establishes the general host-sequence-only strategy and illustrates plausible species-specific analogues. The following embodiments use genes and promoters for which published experimental data demonstrates: (a)~that the MYB activator induces anthocyanin accumulation when overexpressed, and (b)~that the promoter drives tissue-specific expression in the target organ. Successful implementation in any given species requires empirical validation.
+
+\begin{longtable}{p{1.5cm} p{2.5cm} p{2.5cm} p{2.5cm} p{4cm}}
+\toprule
+\textbf{Crop} & \textbf{Species} & \textbf{MYB Activator} & \textbf{Promoter} & \textbf{Key References} \\
+\midrule
+\endhead
+Pepper & \textit{C.~annuum} & CaANT1 / CaAN1 & CaE8 ortholog & Borovsky et al.\ 2004 \\
+\addlinespace
+Eggplant & \textit{S.~melongena} & SmMYB1 & SmE8 ortholog & Li et al. \\
+\addlinespace
+Potato & \textit{S.~tuberosum} & StAN1 / StMYB113 & Patatin (GBSS) & Jung et al.\ 2009; Rocha-Sosa et al.\ 1989 \\
+\addlinespace
+Sweet Corn & \textit{Zea mays} & C1 (kernel), Pl1 (plant) & 27-kDa $\gamma$-zein & Cone et al.\ 1986; Paz-Ares et al.\ 1987 \\
+\bottomrule
+\end{longtable}
+
+\noindent For pepper and eggplant, E8 orthologs are expected to be conserved within Solanaceae but fruit-specific activity would require validation. For potato and maize, both the MYB and promoter elements have been demonstrated separately but the specific pairings for cisgenic anthocyanin enhancement are novel.
+
+% ============================================================
+\section{Breeding Applications}
+% ============================================================
+
+\subsection{Integration into Existing Varieties}
+
+Once a stable, marker-free, homozygous E8::ANT1 (or equivalent) line is established, the anthocyanin trait can be introduced into any existing variety by conventional crossing:
+
+\begin{enumerate}
+  \item Cross the purple line (E8::ANT1 homozygous) $\times$ desired variety
+  \item F1 progeny will be hemizygous---expected to be phenotypically purple (anthocyanin MYB overexpression is generally dominant)
+  \item Self-pollinate F1 to generate F2
+  \item Select F2 plants that are (a)~homozygous for the E8::ANT1 insertion and (b)~carry desired characteristics of the recurrent parent
+  \item Backcross to recurrent parent as needed
+\end{enumerate}
+
+Visual selection may greatly reduce, though not necessarily eliminate, the need for molecular genotyping during introgression.
+
+\subsection{Purple as a Visual Breeding Marker}
+
+Beyond the nutritional value of anthocyanins, the purple phenotype can serve as a visible marker for linked traits in breeding programs, analogous to purple kernel pigmentation used in maize genetics since the early 20th century.
+
+% ============================================================
+\section{Generalized Disclosed Principle}
+\label{sec:generalized}
+% ============================================================
+
+For any edible crop species \textit{X} possessing:
+\begin{itemize}
+  \item An endogenous R2R3-MYB transcription factor \textit{MYB\_X} that activates the anthocyanin biosynthesis pathway
+  \item An endogenous promoter \textit{P\_X} that drives expression specifically in the edible tissue of interest
+  \item An endogenous terminator \textit{T\_X}
+\end{itemize}
+
+The construct \textbf{P\_X::MYB\_X::T\_X} represents an intragenic anthocyanin enhancement approach. This general formulation is disclosed as a non-limiting principle. Successful implementation in any given species requires empirical validation of promoter specificity, expression levels, anthocyanin accumulation, and agronomic performance. Performance may vary by cultivar, genomic context, insertion site, allele choice, and environmental conditions.
+
+% ============================================================
+\section{Disclosed Embodiments and Non-Limiting Variations}
+% ============================================================
+
+This section enumerates the embodiments and principles disclosed in this publication. This is a summary of what has been described above, not an assertion of claim. No patent protection is sought or intended for any aspect of this disclosure.
+
+\subsection{Core Disclosed Embodiments}
+\begin{enumerate}
+  \item The construct E8::ANT1::3\textquotesingle{}UTR (all functional elements from \textit{S.~lycopersicum}) for producing purple-fruited tomato (Section~\ref{sec:primary})
+  \item The specific supported cross-species embodiments listed in Section~\ref{sec:crossspecies} (pepper, eggplant, potato, sweet corn)
+  \item SDN-1 knockout of endogenous R3-MYB anthocyanin repressors in tomato and maize (Section~\ref{sec:variants})
+  \item Allele substitution from sexually compatible wild relatives (Section~\ref{sec:variants})
+  \item Co-expression of endogenous MYB + bHLH using tissue-specific endogenous promoters (Section~\ref{sec:variants})
+\end{enumerate}
+
+\subsection{Generalized Disclosed Principles}
+\begin{enumerate}[resume]
+  \item The general principle that an intragenic construct P\_X::MYB\_X::T\_X can enhance anthocyanin biosynthesis in the edible tissue of any crop species possessing the requisite genetic elements (Section~\ref{sec:generalized})
+  \item The use of endogenous anthocyanin phenotype as a visual selectable marker in lieu of antibiotic or herbicide resistance markers
+  \item The application of this principle using promoter replacement at the native MYB locus or cassette insertion at a predetermined locus via CRISPR/Cas9 or Cas12a (Section~\ref{sec:delivery})
+\end{enumerate}
+
+% ============================================================
+\section{Statement of Purpose}
+% ============================================================
+
+This defensive publication is made for the sole purpose of establishing prior art. The disclosed methods, constructs, and applications are placed into the public domain. No patent protection is sought or intended for any aspect of this disclosure.
+
+The authors intend to develop and release intragenic anthocyanin-enhanced plant varieties under the \textbf{Open Source Seed Initiative (OSSI) Pledge}:
+\begin{quote}
+\textit{``You have the freedom to use these seeds in any way you choose. In return, you pledge not to restrict others' use of these seeds or their derivatives by patents or other means, and to include this Pledge with any transfer of these seeds or their derivatives.''}
+\end{quote}
+
+\noindent\textbf{Note on scope:} The OSSI Pledge applies to biological materials (seeds, plant lines) derived from this work, not to this publication document itself (which is released under CC0 1.0 Universal). The publication establishes prior art; the OSSI Pledge governs downstream germplasm stewardship. These are complementary but distinct mechanisms.
+
+% ============================================================
+% PART II: PROPHETIC AND SUPPLEMENTAL EXTENSIONS
+% ============================================================
+\newpage
+\part*{Part II: Non-Limiting Prophetic Extensions}
+\addcontentsline{toc}{part}{Part II: Non-Limiting Prophetic Extensions}
+
+\noindent\textit{The following embodiments are biologically plausible based on the conservation of the anthocyanin MBW regulatory system across angiosperms and the availability of published genomic data. They have not been experimentally validated in the specific configurations described and are included to establish prior art for these logical extensions. Successful implementation would require species-specific optimization.}
+
+% ============================================================
+\section{Prophetic Cross-Species Embodiments}
+% ============================================================
+
+\begin{longtable}{p{1.5cm} p{2cm} p{2cm} p{2cm} p{5.5cm}}
+\toprule
+\textbf{Crop} & \textbf{Species} & \textbf{Candidate MYB} & \textbf{Candidate Promoter} & \textbf{Rationale} \\
+\midrule
+\endhead
+Apple & \textit{M.~domestica} & MdMYB10 & MdACO1 & MdMYB10 is a well-characterized anthocyanin activator \citep{Espley2007}. ACO1 is ripening-associated. Untested as construct. \\
+\addlinespace
+Strawberry & \textit{F.~$\times$~ananassa} & FaMYB10 & FaEXP2 & FaMYB10 activates anthocyanin production \citep{MedinaPuche2014}. FaEXP2 is fruit-expressed. Pairing untested. \\
+\addlinespace
+Pear & \textit{P.~communis} & PcMYB10 & PcACO ortholog & By phylogenetic inference from apple. Functional validation needed. \\
+\addlinespace
+Rice & \textit{O.~sativa} & OsC1 / OsMYB3 & Glutelin (GluB-1) & OsC1 regulates anthocyanin \citep{Saitoh2004}. Monocot-specific regulatory interactions may apply. \\
+\addlinespace
+Grape & \textit{V.~vinifera} & VvMYBA1/A2 & VvACO ortholog & VvMYBA1/A2 are primary determinants of berry color \citep{Kobayashi2004}. \\
+\addlinespace
+Carrot & \textit{D.~carota} & DcMYB7 & Root-specific & DcMYB7 associated with purple carrot coloration. Promoter selection requires validation. \\
+\addlinespace
+Sweet Potato & \textit{I.~batatas} & IbMYB1 & Sporamin & IbMYB1 activates anthocyanin biosynthesis. Sporamin is a tuber-specific promoter. Untested. \\
+\addlinespace
+Wheat & \textit{T.~aestivum} & TaMYB ortholog & HMW glutenin & By inference from maize and rice. Implementation requires gene identification. \\
+\addlinespace
+Sorghum & \textit{S.~bicolor} & SbMYB & Kafirin & Anthocyanin regulators analogous to maize. Both elements require validation. \\
+\bottomrule
+\end{longtable}
+
+% ============================================================
+\section{Additional Prospective Methods}
+% ============================================================
+
+The following methods are disclosed for completeness and to establish prior art for their potential future application. They are not recommended as primary development methods due to limited published validation in the species described.
+
+\subsection{DNA-Free Delivery (RNP)}
+Pre-assembled Cas9 or Cas12a ribonucleoprotein can be delivered to protoplasts via PEG-mediated transfection or to intact tissues via particle bombardment. For the promoter replacement embodiment, a DNA-based HDR template would still be required, which introduces a technical tension: the template DNA may integrate at off-target sites. Routine regeneration of fertile tomato plants from protoplasts remains technically challenging and cultivar-dependent.
+
+\subsection{Enhancer Element Insertion}
+Rather than replacing the entire promoter, \textit{cis}-regulatory elements derived from an endogenous source can be inserted upstream of the native ANT1 promoter to boost expression. Functional effectiveness depends on element spacing, orientation, chromatin context, and the availability of cognate transcription factors. This approach requires empirical optimization.
+
+\subsection{Non-Limiting Variations}
+\begin{enumerate}
+  \item The prophetic cross-species embodiments listed above
+  \item Enhancer element insertion upstream of endogenous MYB genes using host-species-derived \textit{cis}-regulatory elements
+  \item Any delivery method suitable for the target species, including \textit{Agrobacterium}-mediated transformation, CRISPR/Cas9, CRISPR/Cas12a, RNP delivery, particle bombardment, PEG-mediated protoplast transformation, and other methods
+  \item Open-source release of any resulting plant materials under the OSSI Pledge or equivalent open-source seed license
+\end{enumerate}
+
+% ============================================================
+% APPENDIX: SEQUENCE AND LOCUS REFERENCE
+% ============================================================
+\newpage
+\appendix
+\section{Sequence and Locus Reference Table}
+\label{app:sequences}
+
+The following table provides identifiers and approximate parameters for the genetic elements described in the primary embodiment. These are provided to facilitate unambiguous identification of the disclosed elements by a later reader.
+
+\begin{longtable}{p{3cm} p{3cm} p{7cm}}
+\toprule
+\textbf{Element} & \textbf{Identifier} & \textbf{Details} \\
+\midrule
+\endhead
+E8 Promoter & \textit{Solyc09g089580} upstream & $\sim$1.1~kb 5\textquotesingle{} flanking region. Source: \textit{S.~lycopersicum} cv.\ Heinz 1706, reference genome SL4.0 \\
+\addlinespace
+ANT1 CDS & \textit{Solyc10g086260} & $\sim$750--800~bp ORF. Source: \textit{S.~lycopersicum} cv.\ Heinz 1706 or equivalent. cDNA (intron-free) preferred. Wild-species alleles from \textit{S.~chilense}, \textit{S.~peruvianum} also functional. \\
+\addlinespace
+ANT1 3\textquotesingle{}UTR & \textit{Solyc10g086260} downstream & $\sim$200--400~bp downstream of stop codon. Native polyadenylation signal. \\
+\addlinespace
+E8 3\textquotesingle{}UTR & \textit{Solyc09g089580} downstream & Alternative terminator source. $\sim$300--500~bp downstream of E8 stop codon. \\
+\addlinespace
+SlMYBL2 (repressor target) & \textit{Solyc09g091900} (putative) & R3-MYB repressor; SDN-1 knockout target. Locus assignment may require confirmation against latest genome annotation. \\
+\addlinespace
+JAF13 (bHLH) & \textit{Solyc08g081140} (putative) & Endogenous bHLH co-activator for combinatorial approach. \\
+\addlinespace
+AN1 (bHLH) & \textit{Solyc09g065100} (putative) & Alternative endogenous bHLH co-activator. \\
+\bottomrule
+\end{longtable}
+
+\noindent\textit{Note:} Locus identifiers are based on the \textit{S.~lycopersicum} SL4.0/ITAG4.0 genome annotation. Identifiers should be confirmed against the latest available genome annotation at the time of use, as gene models may be revised.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
+
+
