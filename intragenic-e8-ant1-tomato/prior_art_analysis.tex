@@ -1,0 +1,222 @@
+% prior_art_analysis.tex
+% Intended for compilation on Overleaf. Do not attempt local compilation.
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Prior Art Analysis --- March 27, 2026}
+\lhead{Open Source Cultivars Project}
+\cfoot{\thepage}
+
+\title{%
+  \textbf{Prior Art Landscape:\\
+  Intragenic and Cisgenic Anthocyanin Enhancement in Edible Crops}\\[1em]
+  \large Internal Analysis Document
+}
+
+\author{Open Source Cultivars Project}
+\date{Prepared: March 27, 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\small\textbf{Purpose.} Comprehensive survey of existing patents, publications, and regulatory status relevant to intragenic/cisgenic anthocyanin enhancement via endogenous MYB transcription factor overexpression. This document is an internal analytical memo and does not constitute legal advice or a formal freedom-to-operate opinion.
+}}
+\end{center}
+
+\vspace{0.5em}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\small\textbf{Disclaimer.} The analysis below is based on a limited review of publicly available materials as of March 2026. Statements about what is or is not ``covered'' by existing art reflect the author's assessment of the reviewed materials and should not be construed as formal legal, patentability, or freedom-to-operate analysis. Readers should consult qualified patent counsel for definitive guidance.
+}}
+\end{center}
+
+% ============================================================
+\section{Key Patent: US 8,802,925 B2 (Norfolk Plant Sciences / John Innes Centre)}
+% ============================================================
+
+\begin{description}
+  \item[Title:] ``Method for modifying anthocyanin expression in solanaceous plants''
+  \item[Granted:] August 12, 2014
+  \item[Inventors:] Cathie Martin, Eugenio Butelli (John Innes Centre, Norwich, UK)
+  \item[Assignee:] Plant Bioscience Limited $\rightarrow$ licensed to Norfolk Plant Sciences
+\end{description}
+
+\subsection{What the Claims Cover}
+
+\begin{itemize}
+  \item Methods for increasing anthocyanin levels in Solanaceae by expressing specific transcription factors
+  \item Expression of \textit{Delila} (Del, a bHLH TF) and \textit{Rosea1} (Ros1, a MYB TF) from \textit{Antirrhinum majus} (snapdragon)
+  \item The patent states that ``functional homologs of MYB transcription factors from \textit{Solanum} species can induce the production of colored anthocyanins''
+  \item Preferred host plants: \textit{S.~lycopersicum} (tomato) and \textit{S.~tuberosum} (potato)
+\end{itemize}
+
+\subsection{What the Specification Discusses (Broader Than Claims)}
+
+The specification discusses MYB transcription factors broadly, including \textit{Solanum}-derived homologs. However, the scope of the claims as granted should be distinguished from the broader discussion in the specification. A formal claim-chart analysis is recommended for any party seeking to assess freedom-to-operate.
+
+\subsection{What Appears Not to Be Expressly Disclosed}
+
+Based on the materials reviewed, the following do not appear to be taught or claimed in US 8,802,925:
+
+\begin{enumerate}
+  \item \textbf{Fruit-specific intragenic constructs} --- all examples use constitutive or snapdragon-derived regulatory elements
+  \item \textbf{E8 promoter driving an endogenous MYB} --- E8::Del/Ros1 is taught (Butelli et al.\ 2008), but E8::ANT1 was not identified
+  \item \textbf{SDN-1/SDN-2 genome editing approaches} --- the patent predates practical CRISPR (2012+)
+  \item \textbf{Cisgenic/intragenic classification as a regulatory strategy} --- no discussion of regulatory advantages of species-native-only constructs
+  \item \textbf{Cross-crop generalization beyond Solanaceae using endogenous MYBs}
+\end{enumerate}
+
+\noindent\textit{Note:} These assessments are based on the author's review and may not reflect the full scope of the patent's doctrine-of-equivalents reach or any continuation/divisional applications. Professional patent analysis is recommended.
+
+% ============================================================
+\section{Key Academic Publications}
+% ============================================================
+
+\subsection{ANT1 Gene Characterization}
+
+\begin{longtable}{p{3.5cm} p{4.5cm} p{5cm}}
+\toprule
+\textbf{Publication} & \textbf{Key Finding} & \textbf{Relevance} \\
+\midrule
+\endhead
+Mathews et al.\ (2003) & Identified ANT1 (\textit{Solyc10g086260}) as an R2R3-MYB TF that activates anthocyanin biosynthesis when overexpressed. Used 35S promoter (CaMV---transgenic). & Establishes that ANT1 overexpression $\rightarrow$ purple tomato. But uses transgenic constitutive promoter. \\
+\addlinespace
+Gonzali et al.\ (2009) & Comprehensive review of anthocyanin engineering in tomato. Discusses ANT1, Aft, atv loci. & Background. Does not describe E8::ANT1. \\
+\addlinespace
+Sapir et al.\ (2008) & ANT1 allele from \textit{S.~chilense} produces purple fruit when introgressed into cultivated tomato. & Shows cross-species ANT1 works, but via conventional breeding. \\
+\bottomrule
+\end{longtable}
+
+\subsection{E8 Promoter}
+
+\begin{longtable}{p{3.5cm} p{9.5cm}}
+\toprule
+\textbf{Publication} & \textbf{Key Finding} \\
+\midrule
+\endhead
+Deikman \& Fischer (1988) & Identified E8 as a fruit-ripening-specific, ethylene-responsive gene in tomato. \\
+\addlinespace
+Butelli et al.\ (2008) & Used E8 promoter to drive Del/Ros1 (snapdragon) in tomato $\rightarrow$ purple fruit with high anthocyanin. This is the Norfolk commercial product basis. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Anthocyanin MBW Complex}
+
+The MYB-bHLH-WD40 (MBW) transcription factor complex is widely recognized as a conserved regulator of anthocyanin biosynthesis across angiosperms:
+\begin{itemize}
+  \item \textbf{MYB} (e.g., ANT1): DNA-binding specificity, activates structural genes
+  \item \textbf{bHLH} (e.g., JAF13, AN1): co-activator, forms heterodimer with MYB
+  \item \textbf{WD40} (e.g., AN11): scaffold protein, stabilizes the complex
+\end{itemize}
+
+% ============================================================
+\section{Cross-Species Orthologs}
+% ============================================================
+
+\begin{longtable}{p{2.5cm} p{3cm} p{1.5cm} p{3cm} p{3cm}}
+\toprule
+\textbf{Species} & \textbf{Endogenous MYB} & \textbf{Published?} & \textbf{Tissue-Specific Promoter} & \textbf{Status} \\
+\midrule
+\endhead
+Tomato & ANT1, AN2 & Yes & E8 (fruit) & Well-characterized \\
+Eggplant & SmMYB1 & Yes & SmE8 ortholog & Expected, unvalidated \\
+Pepper & CaANT1, CaAN1 & Yes & CaE8 ortholog & Expected, unvalidated \\
+Potato & StAN1, StMYB113 & Yes & Patatin (tuber) & Both demonstrated separately \\
+Maize & C1, Pl1 & Yes & Zein (kernel) & Classic genetics \\
+Apple & MdMYB10 & Yes & MdACO1 (fruit) & Published \\
+Strawberry & FaMYB10 & Yes & FaEXP2 (fruit) & Published \\
+Rice & OsC1, OsMYB3 & Yes & Glutelin (seed) & Published \\
+\bottomrule
+\end{longtable}
+
+\noindent In each case above, the endogenous MYB activator is already identified and published. What has \textit{not been identified in the materials reviewed} is the general principle of combining these with tissue-specific endogenous promoters as an explicitly intragenic/cisgenic strategy for open-source breeding. That appears to be the gap our defensive publication addresses.
+
+% ============================================================
+\section{Regulatory Landscape Summary}
+\label{sec:regulatory}
+% ============================================================
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\small\textbf{Caution:} Regulatory frameworks for genome-edited and cisgenic plants are evolving rapidly across all jurisdictions. The following is a snapshot as of March 2026 and should not be relied upon as current regulatory guidance. Specific regulatory outcomes depend on the jurisdiction, the specific modification, the development method, and the regulatory framework in effect at the time of evaluation. Consult qualified regulatory professionals for current guidance.
+}}
+\end{center}
+
+\subsection{United States (USDA APHIS)}
+\begin{itemize}
+  \item \textbf{SECURE Rule} (2020) was vacated by court order December 2, 2024
+  \item Legacy notification framework reinstated; ``Am I Regulated?'' inquiries still available
+  \item \textbf{SDN-1} (small indels, no template): generally has received non-regulated determinations in past inquiries
+  \item \textbf{SDN-2} (small template-directed changes): generally has received non-regulated determinations in past inquiries
+  \item \textbf{SDN-3} (large insertions of foreign DNA): typically regulated like traditional GMOs
+  \item A fully intragenic construct delivered via methods that leave no foreign DNA may receive less restrictive regulatory treatment, subject to case-by-case review
+\end{itemize}
+
+\subsection{European Union}
+\begin{itemize}
+  \item New Genomic Techniques (NGT) regulation under consideration
+  \item Category 1 plants (equivalent to conventionally bred): may receive reduced regulatory requirements
+  \item Cisgenic approaches using endogenous genes could potentially meet Category 1 criteria, pending final regulatory text
+\end{itemize}
+
+\subsection{Key Distinction for This Work}
+
+\begin{longtable}{p{4cm} p{4cm} p{4cm}}
+\toprule
+\textbf{Approach} & \textbf{Likely Classification} & \textbf{Foreign DNA?} \\
+\midrule
+Norfolk (Del/Ros1) & Transgenic---fully regulated & Yes (\textit{Antirrhinum}) \\
+\addlinespace
+35S::ANT1 (published) & Transgenic---regulated & Yes (CaMV promoter) \\
+\addlinespace
+E8::ANT1 (this disclosure) & Intragenic---may receive less restrictive treatment & No (all tomato-derived) \\
+\bottomrule
+\end{longtable}
+
+\noindent\textit{Note:} The regulatory classification shown above reflects the author's assessment and is subject to jurisdictional variation and regulatory change. The actual classification of any specific plant will be determined by the relevant regulatory authority based on the specific facts of the case.
+
+% ============================================================
+\section{Identified Gap}
+% ============================================================
+
+The specific combination that \textit{does not appear to be expressly disclosed in the materials reviewed}:
+
+\begin{enumerate}
+  \item[\checkmark] Endogenous R2R3-MYB TF (e.g., ANT1) --- gene is known
+  \item[\checkmark] Fruit-specific endogenous promoter (e.g., E8) --- promoter is known
+  \item[\checkmark] E8::Del/Ros1 --- published (but transgenic)
+  \item[\checkmark] 35S::ANT1 --- published (but transgenic promoter)
+  \item[$\times$] \textbf{E8::ANT1 as a fully intragenic construct} --- not identified in reviewed materials
+  \item[$\times$] \textbf{Generalized intragenic MYB overexpression principle across crops} --- not located in the sources surveyed
+  \item[$\times$] \textbf{CRISPR-mediated promoter replacement at native ANT1 locus with E8} --- not identified in reviewed materials
+  \item[$\times$] \textbf{Open-source / OSSI licensing of intragenic anthocyanin varieties} --- not identified in reviewed materials
+\end{enumerate}
+
+\noindent\textit{These are the gaps that the defensive publication is intended to address. The assessment above is based on the author's review of publicly available materials and may not reflect the full landscape of pending applications, unpublished work, or foreign-language publications.}
+
+\end{document}
