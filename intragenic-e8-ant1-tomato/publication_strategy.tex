@@ -1,0 +1,229 @@
+% publication_strategy.tex
+% Intended for compilation on Overleaf. Do not attempt local compilation.
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Publication Strategy --- March 27, 2026}
+\lhead{Open Source Cultivars Project}
+\cfoot{\thepage}
+
+\title{%
+  \textbf{Publication Strategy \& Next Steps}\\[1em]
+  \large Intragenic/Cisgenic Purple Tomato --- Defensive Publication
+}
+
+\author{Open Source Cultivars Project}
+\date{March 27, 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\small\textbf{Disclaimer.} This document outlines a proposed publication strategy for a technical disclosure. It does not constitute legal advice. The legal effect of publication as prior art, the obligations of patent examiners, and the regulatory classification of any resulting plant vary by jurisdiction and factual circumstances. Readers should consult qualified legal and regulatory professionals for guidance specific to their situation.
+}}
+\end{center}
+
+% ============================================================
+\section{Recommended Multi-Channel Publication Strategy}
+% ============================================================
+
+For maximum defensive effect, the disclosure should be published through multiple channels to ensure it is (a)~timestamped, (b)~publicly accessible, (c)~discoverable by patent searchers, and (d)~citable.
+
+\subsection{Standardized Package Recommendation}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\small\textbf{Critical:} The \textit{exact same versioned package} should be published across all channels:
+\begin{itemize}[nosep]
+  \item Same title
+  \item Same authorship line
+  \item Same PDF (identical file)
+  \item Same appendix/supplemental files
+  \item Same date
+  \item Same version number (e.g., v1.0)
+\end{itemize}
+A SHA-256 hash/checksum of the deposited PDF and supplemental files should be recorded and included in the GitHub repository README. This improves evidentiary clarity if the publication is later cited in a patent proceeding.
+}}
+\end{center}
+
+% ============================================================
+\subsection{Channel 1: Zenodo (Free --- Priority)}
+
+\begin{description}
+  \item[What:] Upload the defensive publication as a Technical Disclosure / Preprint
+  \item[Cost:] Free
+  \item[Why:] Assigns a DOI (Digital Object Identifier), creating a permanent, citable academic record. Indexed by Google Scholar and OpenAIRE.
+\end{description}
+
+\paragraph{Steps:}
+\begin{enumerate}
+  \item Create a Zenodo account at \url{https://zenodo.org}
+  \item Upload the defensive publication as PDF (the standardized package)
+  \item Set the upload type to ``Publication'' $\rightarrow$ ``Technical note'' or ``Preprint''
+  \item Set access to ``Open Access''
+  \item Add license: ``Creative Commons Zero (CC0)'' --- public domain
+  \item Add keywords: intragenic, cisgenic, anthocyanin, ANT1, E8, tomato, defensive publication, open source, prior art
+  \item Publish $\rightarrow$ receive DOI
+\end{enumerate}
+
+\noindent\textbf{Timeline:} Same day.
+
+% ============================================================
+\subsection{Channel 2: bioRxiv Preprint (Free --- High Visibility)}
+
+\begin{description}
+  \item[What:] Submit as a preprint to bioRxiv (Plant Biology section)
+  \item[Cost:] Free
+  \item[Why:] High visibility in the biology community. Indexed by PubMed, Google Scholar, and Europe PMC.
+\end{description}
+
+\paragraph{Steps:}
+\begin{enumerate}
+  \item Reformat the defensive publication into a short paper format with abstract, introduction, methods, discussion
+  \item Upload at \url{https://www.biorxiv.org}
+  \item Select ``Plant Biology'' or ``Synthetic Biology'' subject area
+  \item Preprint is posted within 24--48 hours after basic screening
+\end{enumerate}
+
+\noindent\textbf{Note:} bioRxiv requires a more academic writing style. The current defensive publication can be adapted without changing the substance.
+
+\noindent\textbf{Timeline:} 1--2 days from submission.
+
+% ============================================================
+\subsection{Channel 3: GitHub Repository (Free --- Living Document)}
+
+\begin{description}
+  \item[What:] Create a public GitHub repository with the full disclosure, construct sequences, and protocols
+  \item[Cost:] Free
+  \item[Why:] Provides timestamped version history (git commits), permanent public access, and a living document that can be updated as the project progresses.
+\end{description}
+
+\paragraph{Steps:}
+\begin{enumerate}
+  \item Initialize a public repo (e.g., \texttt{opencultivars/cisgenic-anthocyanin})
+  \item Include the defensive publication, prior art analysis, construct sequence files (GenBank format), and any protocols
+  \item Add an OSSI Pledge note and a CC0 \texttt{LICENSE} file
+  \item Add a clear \texttt{README} explaining the purpose and including the SHA-256 hash of the submitted PDF
+  \item Tag the initial commit with a version (\texttt{v1.0}) and create a release
+\end{enumerate}
+
+\noindent\textbf{Timeline:} Same day.
+
+% ============================================================
+\subsection{Channel 4: IP.com Prior Art Database (Paid --- Strong Patent-Search Visibility)}
+
+\begin{description}
+  \item[What:] Formal defensive publication through IP.com
+  \item[Cost:] Approximately \$200--300 per publication
+  \item[Why:] IP.com publications are indexed in patent examiner search databases and published in ``The IP.com Journal.'' This can strengthen prior-art accessibility and may improve discoverability in patent searching, though the specific legal effect varies by jurisdiction.
+\end{description}
+
+\paragraph{Steps:}
+\begin{enumerate}
+  \item Create an account at \url{https://ip.com}
+  \item Submit the defensive publication as a Technical Disclosure (the standardized package)
+  \item Pay the publication fee
+  \item Publication occurs within minutes
+  \item Receives a permanent IP.com reference number
+\end{enumerate}
+
+\noindent\textbf{Recommendation:} This is optional but can improve the likelihood that patent examiners will encounter this disclosure during prior art searches. The legal significance of any particular publication venue should be reviewed with counsel if the goal is to maximize legal effect.
+
+\noindent\textbf{Timeline:} Same day (after payment).
+
+% ============================================================
+\subsection{Channel 5: ResearchDisclosure (Paid --- Alternative)}
+
+\begin{description}
+  \item[What:] Alternative formal defensive publication platform
+  \item[Cost:] Approximately \$200--500
+  \item[Why:] Another industry-standard defensive publication venue.
+\end{description}
+
+\noindent\textbf{Recommendation:} Use IP.com OR ResearchDisclosure, not both. IP.com is slightly preferred for its faster publication.
+
+% ============================================================
+\section{Recommended Action Plan}
+% ============================================================
+
+\begin{longtable}{c l l l}
+\toprule
+\textbf{Priority} & \textbf{Action} & \textbf{Cost} & \textbf{Timeline} \\
+\midrule
+1 (High) & Upload to Zenodo $\rightarrow$ receive DOI & Free & Today \\
+2 (High) & Create GitHub repo with versioned release & Free & Today \\
+3 (Medium) & Submit to bioRxiv & Free & 1--2 days \\
+4 (Optional) & Submit to IP.com & $\sim$\$250 & Same day \\
+\bottomrule
+\end{longtable}
+
+\noindent Publishing to Zenodo first establishes a timestamped DOI immediately at zero cost. This can serve as a strong foundation for prior-art accessibility. The other channels add layers of visibility and discoverability.
+
+% ============================================================
+\section{Open Source Seed Initiative (OSSI) Integration}
+\label{sec:ossi}
+% ============================================================
+
+It is important to distinguish three separate mechanisms that serve complementary but distinct purposes:
+
+\begin{description}
+  \item[The Publication (this document):] A technical disclosure placed into the public domain under CC0 1.0 Universal. Its purpose is to establish prior art and prevent patent encumbrance of the disclosed methods and constructs. It is a \textit{document}.
+  \item[Future Plant Materials / Seed Lines:] Physical germplasm developed using the disclosed methods. These are \textit{biological materials} that exist independently of the publication.
+  \item[The OSSI Pledge:] A licensing/pledge mechanism applied to biological materials (seeds and their derivatives). It creates a covenant that any derivative varieties must also carry the pledge, preventing downstream patent encumbrance of the germplasm.
+\end{description}
+
+\subsection{OSSI Integration Steps (for future seed lines)}
+
+Once actual seeds are produced from this project:
+\begin{enumerate}
+  \item Register the variety with OSSI (\url{https://osseeds.org})
+  \item Include the OSSI Pledge on all seed packets and transfers
+  \item The pledge creates a covenant---any derivative varieties must also carry the pledge
+  \item This mechanism is intended to prevent downstream patent encumbrance even if someone improves the variety
+\end{enumerate}
+
+\noindent\textit{Note:} The legal enforceability and scope of the OSSI Pledge may vary by jurisdiction. The pledge is a community norm and ethical commitment; its function as a legal instrument has not been extensively tested in litigation.
+
+% ============================================================
+\section{License for the Defensive Publication Itself}
+% ============================================================
+
+The defensive publication document should be released under \textbf{CC0 1.0 Universal (Public Domain Dedication)}:
+\begin{itemize}
+  \item No copyright restrictions of any kind
+  \item Anyone can copy, modify, distribute, or use the disclosure for any purpose
+  \item This is intended to maximize the document's effectiveness as prior art
+\end{itemize}
+
+% ============================================================
+\section{Notes on Timing}
+% ============================================================
+
+Under US patent law (35~U.S.C.~\S102), a published disclosure can constitute prior art from its publication date. A patent application filed after the publication date that claims the same subject matter may be rejected for lack of novelty. Additionally, a patent application filed within one year of publication by someone other than the inventor of the disclosure may be barred.
+
+The specific legal effect of any particular publication depends on the facts and circumstances, including the content of the publication relative to the patent claims, the publication date, the filing date of the patent application, and the applicable law. These matters should be reviewed with counsel if the goal is to maximize legal effect.
+
+\textbf{Bottom line:} Early publication can strengthen the defensive posture of this disclosure. There may be strategic value in publishing promptly, even if further refinement is planned, and then issuing updated versions.
+
+\end{document}
