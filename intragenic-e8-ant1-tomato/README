@@ -1,0 +1,12 @@
+# Intragenic Anthocyanin Enhancement (March 2026)
+
+This directory contains the source files for the OpenCultivars prior art disclosure regarding anthocyanin biosynthesis.
+
+## Cryptographic Proof
+To verify the integrity of the published prior art, the SHA-256 hashes of the official released PDFs (tagged as `anthocyanin-myb-v1.0`) are recorded below:
+
+| Document | SHA-256 Hash |
+| :--- | :--- |
+| `OpenCultivars_Defensive_Pub_Anthocyanin_MYB_20260330.pdf` | `ef5f293708397fd5310f08a591e7cef38372e36570e4490ea870d9766554f438` |
+| `OpenCultivars_Prior_Art_Anthocyanin_MYB_20260330.pdf` | `8d13fc6834b31f66f7052a9740d2efde4c7c3f989ac8ac034995d8d2142e553e` |
+| `OpenCultivars_Pub_Strategy_Anthocyanin_MYB_20260330.pdf` | `a630be4c1163fe8ade9ab8e5f3b26d057ee1cbf7fd36690e6b80b54db63735e3` |
